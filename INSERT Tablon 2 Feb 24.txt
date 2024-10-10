@@ -1,0 +1,412 @@
+INSERT INTO P_DW_EXPLO_TABLES.DWRM_DAAS_Indicador_adopcion_MI
+(Total_Tablas,
+		Total_Vistas, Total_Macros, Total_Proc, Total_JI, Total_Tablas_P_DW_TABLES,
+		Total_Vistas_P_DW_TABLES, Total_Macros_P_DW_TABLES, Total_Proc_P_DW_TABLES,
+		Total_JI_P_DW_TABLES, Total_Tablas_P_LOOKUP, Total_Vistas_P_LOOKUP,
+		Total_Macros_P_LOOKUP, Total_Proc_P_LOOKUP, Total_JI_P_LOOKUP,
+		Total_Tablas_P_RRHH_TABLES, Total_Vistas_P_RRHH_TABLES, Total_Macros_P_RRHH_TABLES,
+		Total_Proc_P_RRHH_TABLES, Total_JI_P_RRHH_TABLES, Tabl_Mod_MI,
+		Tabl_Mod_Creada_MI, Tabl_Mod_Creada_MI_P_DW_TABLES, Tabl_Mod_Creada_MI_P_LOOKUP,
+		Tabl_Mod_Creada_MI_P_RRHH_TABLES, Tabl_Mod_Pob_MI, Tabl_Mod_Pob_MI_P_DW_TABLES,
+		Tabl_Mod_Pob_MI_P_LOOKUP, Tabl_Mod_Pob_MI_P_RRHH_TABLES, PCT_Creacion_Tabl_Mod,
+		PCT_Carga_Tabl_Mod, Tot_Tabl_Impl_MI, Tabl_Impl_MI_P_DW_TABLES,
+		Tabl_Impl_MI_P_LOOKUP, Tabl_Impl_MI_P_RRHH_TABLES, PCT_MI_Vs_TotTabl,
+		PCT_ViejoMundo_Vs_TotTabl, Tabl_Impl_MI_NODOC, Tabl_Impl_MI_NODOC_P_DW_TABLES,
+		Tabl_Impl_MI_NODOC_P_LOOKUP, Tabl_Impl_MI_NODOC_P_RRHH_TABLES,
+		Campo_MI_NODOC, Tabl_nueva, Tabl_nueva_Doc, Tabl_nueva_NODOC,
+		Tabl_nueva_NODOC_p_dw_tables, Tabl_nueva_NODOC_P_LOOKUP, Tabl_nueva_NODOC_P_RRHH_TABLES,
+		Tabl_Skew_Alto, Tabl_Sin_Estadisticas, Tabl_Limplieza_Datos,
+		Total_Campo_No_estandar, Campo_No_Estandarizado_P_DW_TABLES,
+		Campo_No_Estandarizado_P_LOOKUP, Campo_No_Estandarizado_P_RRHH_Tables,
+		Campo_Mod_No_Estandar, Campo_MI_NODOC_No_Estandar, Campo_MI_NODOC_No_Estandar_P_DW_TABLES,
+		Campo_MI_NODOC_No_Estandar_P_LOOKUP, Campo_MI_NODOC_No_Estandar_P_RRHH_TABLES)
+SELECT
+
+Total_Tablas   								-- 		Total Tablas  existentes en P_DW_TABLES, P_LOOKUP y P_RRHH_TABLES         
+,Total_Vistas  								-- 		Total Vistas  existentes en P_DW_TABLES, P_LOOKUP y P_RRHH_TABLES                    
+,Total_Macros  								-- 		Total Macros  existentes en P_DW_TABLES, P_LOOKUP y P_RRHH_TABLES                    
+,Total_Proc    								-- 		Total Store Procedures  existentes en P_DW_TABLES, P_LOOKUP y P_RRHH_TABLES                                      
+,Total_JI      								-- 		Total Join Index  existentes en P_DW_TABLES, P_LOOKUP y P_RRHH_TABLES  
+
+--TOTALES EN P_DW_TABLES
+,Total_Tablas_P_DW_TABLES     				-- 		Total Tablas  existentes en P_DW_TABLES 
+,Total_Vistas_P_DW_TABLES     				-- 		Total Vistas  existentes en P_DW_TABLES 
+,Total_Macros_P_DW_TABLES     				-- 		Total Macros  existentes en P_DW_TABLES 
+,Total_Proc_P_DW_TABLES       				-- 		Total Store Procedures  existentes en P_DW_TABLES 
+,Total_JI_P_DW_TABLES         				-- 		Total Join Index  existentes en P_DW_TABLES
+							  				
+--TOTALES EN P_DW_LOOKUP	  				
+,Total_Tablas_P_LOOKUP        				-- 		Total Tablas  existentes en P_LOOKUP
+,Total_Vistas_P_LOOKUP        				--  	Total vistas  existentes en P_LOOKUP   
+,Total_Macros_P_LOOKUP        				--  	Total Macros existentes en P_LOOKUP   
+,Total_Proc_P_LOOKUP          				--  	Total Store Procedures  existentes en P_LOOKUP   
+,Total_JI_P_LOOKUP            				--  	Total Join Index  existentes en P_LOOKUP  
+							  				
+--TOTALES EN P_RRHH_TABLES	  				
+,Total_Tablas_P_RRHH_TABLES   				-- 		Total Tablas  existentes en P_RRHH_TABLES
+,Total_Vistas_P_RRHH_TABLES   				--  	Total Vistas  existentes en P_RRHH_TABLES  
+,Total_Macros_P_RRHH_TABLES    				--  	Total Macros existentes en P_RRHH_TABLES
+,Total_Proc_P_RRHH_TABLES      				--  	Total Store Procedures existentes en P_RRHH_TABLES
+,Total_JI_P_RRHH_TABLES        				--  	Total Join Index existentes en P_RRHH_TABLES
+
+--TOTALES MI
+-- ANALISIS IMPLEMENTACION Y CARGA DE LAS ESTRUCTURAS MODELADAS EN EL MI
+
+,Tabl_Mod_MI                   				-- 		Total de tablas MI modeladas y documentadas en el  Modelo Erwin del MI
+,Tabl_Mod_Creada_MI            				-- 		Total de tablas MI modeladas y documentadas en el Modelo Erwin del MI que fueron creadas en P_DW_TABLES, P_LOOKUP o P_RRHH_TABLES. No incluye transgresiones
+,Tabl_Mod_Creada_MI_P_DW_TABLES				-- 		Total de tablas MI modeladas y documentadas en el Modelo Erwin del MI que fueron creadas en P_DW_TABLES. No incluye transgresiones
+,Tabl_Mod_Creada_MI_P_LOOKUP				-- 		Total de tablas MI modeladas y documentadas en el Modelo Erwin del MI que fueron creadas en P_LOOKUP. No incluye transgresiones
+,Tabl_Mod_Creada_MI_P_RRHH_TABLES			-- 		Total de tablas MI modeladas y documentadas en el Modelo Erwin del MI que fueron creadas en  P_RRHH_TABLES. No incluye transgresiones
+,Tabl_Mod_Pob_MI               				-- 		Total de tablas MI modeladas y documentadas en el Modelo Erwin del MI que fueron creadas y cargadas en  P_DW_TABLES, P_LOOKUP o P_RRHH_TABLES. No incluye transgresiones
+,Tabl_Mod_Pob_MI_P_DW_TABLES   				-- 		Total de tablas MI modeladas y documentadas en el Modelo Erwin del MI que fueron creadas y cargadas en  P_DW_TABLES. No incluye transgresiones
+,Tabl_Mod_Pob_MI_P_LOOKUP      				-- 		Total de tablas MI modeladas y documentadas en el Modelo Erwin del MI que fueron creadas y cargadas en  P_LOOKUP . No incluye transgresiones
+,Tabl_Mod_Pob_MI_P_RRHH_TABLES 				-- 		Total de tablas MI modeladas y documentadas en el Modelo Erwin del MI que fueron creadas y cargadas en  P_RRHH_TABLES. No incluye transgresiones
+,PCT_Creacion_Tabl_Mod         				-- 		ProporciÃ³n de la cantidad de las tablas MI_que fueron creadas en la BD entre  todas las tablas MI modeladas y documentadas en el Modelo Erwin del MI
+,PCT_Carga_Tabl_Mod            				--		ProporciÃ³n de la cantidad de las tablas MI cargadas entre  todas las MI creadas en la base de datos
+
+-- TOTALES DE TABLAS CON PREJIO MI_EXISTENTES EN LA BASE DE DATOS. INCLUYE LAS TRANSGRESIONES
+,Tot_Tabl_Impl_MI     						--		Total Tablas con prefijo MI_ existentes en P_DW_TABLES, P_LOOKUP y P_RRHH_TABLES. Incluye las transgresiones    
+,Tabl_Impl_MI_P_DW_TABLES      				--		Total Tablas con prefijo MI_ existentes en P_DW_TABLES. Incluye las transgresiones    
+,Tabl_Impl_MI_P_LOOKUP         				--		Total Tablas con prefijo MI_ existentes en P_LOOKUP. Incluye las transgresiones    
+,Tabl_Impl_MI_P_RRHH_TABLES    				--		Total Tablas con prefijo MI_ existentes en P_RRHH_TABLES. Incluye las transgresiones    
+
+,PCT_MI_Vs_TotTabl             				-- 		ProporciÃ³n de la cantidad de tablas con prefijo MI vs la totalidad de las tablas en P_DW_TABLES, P_LOOKUP o P_RRHH_TABLES
+,PCT_ViejoMundo_Vs_TotTabl     				-- 		ProporciÃ³n de la cantidad de tablas que no tienen el prefijo MI (Viejo mundo) vs la totalidad de las tablas en P_DW_TABLES, P_LOOKUP o P_RRHH_TABLES
+
+-- ANALISIS TRANSGRESIONES AL MI
+,Tabl_Impl_MI_NODOC            				-- 		Total de tablas con prefijo MI existente en P_DW_TABLES, P_LOOKUP, P_RRHH_TABLES que no estÃ¡n documentadas en el ERWIN
+,Tabl_Impl_MI_NODOC_P_DW_TABLES				-- 		Total de tablas con prefijo MI existente en P_DW_TABLES que no estÃ¡n documentadas en el ERWIN
+,Tabl_Impl_MI_NODOC_P_LOOKUP   				-- 		Total de tablas con prefijo MI existente en P_LOOKUP que no estÃ¡n documentadas en el ERWIN
+,Tabl_Impl_MI_NODOC_P_RRHH_TABLES			-- 		Total de tablas con prefijo MI existente en P_RRHH_TABLES que no estÃ¡n documentadas en el ERWIN
+,Campo_MI_NODOC                				-- 		Total de campos en tablas con prefijo MI que no estÃ¡n documentados en el ERWIN
+
+---  ANALISIS ULTIMAS IMPLEMENTACIONES
+,Tabl_nueva                    				-- 		Total de tablas con creadas posterior al 15 de agosto 2023 en P_DW_TABLES, P_LOOKUP o P_RRHH_TABLES .  Se excluye en el conteo las tabls con prefijo ZDEPU que son tablas temporales que el squad identifica para borrar
+,Tabl_nueva_Doc                				-- 		Total de tablas con creadas posterior al 15 de agosto 2023 en P_DW_TABLES, P_LOOKUP o P_RRHH_TABLES  documentadas en el ERWIN del modelo MI. 
+,Tabl_nueva_NODOC              				-- 		Total de tablas con creadas posterior al 15 de agosto 2023 en P_DW_TABLES, P_LOOKUP o P_RRHH_TABLES  NO documentadas en el ERWIN del modelo MI. Se excluye en el conteo las tabls con prefijo ZDEPU que son tablas temporales que el squad identifica para borrar
+,Tabl_nueva_NODOC_P_DW_TABLES  				-- 		Total de tablas con creadas posterior al 15 de agosto 2023 en P_DW_TABLES NO  documentadas en el ERWIN del modelo MI. Se excluye en el conteo las tabls con prefijo ZDEPU que son tablas temporales que el squad identifica para borrar
+,Tabl_nueva_NODOC_P_LOOKUP     				-- 		Total de tablas con creadas posterior al 15 de agosto 2023 en P_DW_LOOKUP NO  documentadas en el ERWIN del modelo MI. Se excluye en el conteo las tabls con prefijo ZDEPU que son tablas temporales que el squad identifica para borrar
+,Tabl_nueva_NODOC_P_RRHH_TABLES				-- 		Total de tablas con creadas posterior al 15 de agosto 2023 en P_RRHH_TABLES NO  documentadas en el ERWIN del modelo MI. Se excluye en el conteo las tabls con prefijo ZDEPU que son tablas temporales que el squad identifica para borrar
+
+--  ANALISIS APLICACION BUENAS PRACTICAS
+,Tabl_Skew_Alto                				-- 		Total de tablas con con alerta nivel del  skew. Corresponde con el reporte en el portal clasificado como 'PELIGRO - ALTO SKEW'
+,Tabl_Sin_Estadisticas         				--		Total de tablas sin estdÃ­sticas. Corresponde con el reporte en el portal
+,Tabl_Limplieza_Datos          				--		Total de tablas que no deben estar creadas en la base de datos P_DW_TABLES, P_LOOKUP debido a que su uso es para una tarea temporal o de respaldo de datos. Ej Tablas con sufijo old, bkd, tmp, borrar etc
+
+--  ANALISIS ESTANDAR DE NOMENCLATURA
+,Total_Campo_No_estandar       				-- 		Total de campos en las tablas en P_DW_TABLES, P_LOOKUP y P_RRHH_TABLES cuyo sufijo no se alinea al estandar definido
+,Campo_No_Estandarizado_P_DW_TABLES 		-- 		Total de campos en las tablas en P_DW_TABLES cuyo sufijo no se alinea al estandar definido
+,Campo_No_Estandarizado_P_LOOKUP 			-- 		Total de campos en las tablas en  P_LOOKUP  cuyo sufijo no se alinea al estandar definido
+,Campo_No_Estandarizado_P_RRHH_TABLES		-- 		Total de campos en las tablas en  P_RRHH_TABLES  cuyo sufijo no se alinea al estandar definido
+
+,Campo_Mod_No_Estandar         				-- 		Total de campos en las tablas en  P_DW_TABLES, P_LOOKUP y P_RRHH_TABLES   cuyo sufijo no se alinea al estandar definido
+,Campo_MI_NODOC_No_Estandar    				-- 		Total de campos en las tablas en  P_DW_TABLES, P_LOOKUP y P_RRHH_TABLES que no existen en el Erwin y   cuyo sufijo no se alinea al estandar definido
+,Campo_MI_NODOC_No_Estandar_P_DW_TABLES		-- 		Total de campos en las tablas en  P_DW_TABLES que no existen en el Erwin y   cuyo sufijo no se alinea al estandar definido
+,Campo_MI_NODOC_No_Estandar_P_LOOKUP		-- 		Total de campos en las tablas en   P_LOOKUP que no existen en el Erwin y   cuyo sufijo no se alinea al estandar definido
+,Campo_MI_NODOC_No_Estandar_P_RRHH_TABLES	-- 		Total de campos en las tablas en   P_RRHH_TABLES que no existen en el Erwin y   cuyo sufijo no se alinea al estandar definido
+
+
+FROM 
+(
+SELECT
+
+/**** TOTALES***/
+
+SUM(CASE WHEN   A.Databasename IN ('P_DW_TABLES' , 'P_LOOKUP','P_RRHH_TABLES')	AND A.TableKind ='T' THEN 1 ELSE 0 END ) Total_Tablas,
+SUM(CASE WHEN   A.Databasename IN ('P_DW_TABLES' , 'P_LOOKUP','P_RRHH_TABLES')	AND A.TableKind ='V' THEN 1 ELSE 0 END ) Total_Vistas,
+SUM(CASE WHEN   A.Databasename IN ('P_DW_TABLES' , 'P_LOOKUP','P_RRHH_TABLES')	AND A.TableKind ='M' THEN 1 ELSE 0 END ) Total_Macros,
+SUM(CASE WHEN  A.Databasename IN ('P_DW_TABLES' , 'P_LOOKUP','P_RRHH_TABLES')	AND A.TableKind ='P' THEN 1 ELSE 0 END ) Total_Proc,
+SUM(CASE WHEN  A.Databasename IN ('P_DW_TABLES' , 'P_LOOKUP','P_RRHH_TABLES')	AND A.TableKind ='I' THEN 1 ELSE 0 END ) Total_JI,
+
+SUM(CASE WHEN A.Databasename ='P_DW_TABLES' AND A.TableKind ='T' THEN 1 ELSE 0 END ) Total_Tablas_P_DW_TABLES,
+SUM(CASE WHEN A.Databasename ='P_DW_TABLES' AND A.TableKind ='V' THEN 1 ELSE 0 END ) Total_Vistas_P_DW_TABLES,
+SUM(CASE WHEN A.Databasename ='P_DW_TABLES' AND A.TableKind ='M' THEN 1 ELSE 0 END ) Total_Macros_P_DW_TABLES,
+SUM(CASE WHEN A.Databasename ='P_DW_TABLES' AND A.TableKind ='P' THEN 1 ELSE 0 END ) Total_Proc_P_DW_TABLES,
+SUM(CASE WHEN A.Databasename ='P_DW_TABLES' AND A.TableKind ='I' THEN 1 ELSE 0 END ) Total_JI_P_DW_TABLES,
+
+SUM(CASE WHEN A.Databasename ='P_LOOKUP' AND A.TableKind ='T' THEN 1 ELSE 0 END ) Total_Tablas_P_LOOKUP,
+SUM(CASE WHEN A.Databasename ='P_LOOKUP' AND A.TableKind ='V' THEN 1 ELSE 0 END ) Total_Vistas_P_LOOKUP,
+SUM(CASE WHEN A.Databasename ='P_LOOKUP' AND A.TableKind ='M' THEN 1 ELSE 0 END ) Total_Macros_P_LOOKUP,
+SUM(CASE WHEN A.Databasename ='P_LOOKUP' AND A.TableKind ='P' THEN 1 ELSE 0 END ) Total_Proc_P_LOOKUP,
+SUM(CASE WHEN A.Databasename ='P_LOOKUP' AND A.TableKind ='I' THEN 1 ELSE 0 END ) Total_JI_P_LOOKUP,
+
+SUM(CASE WHEN A.Databasename ='P_RRHH_TABLES' AND A.TableKind ='T' THEN 1 ELSE 0 END ) Total_Tablas_P_RRHH_TABLES,
+SUM(CASE WHEN A.Databasename ='P_RRHH_TABLES' AND A.TableKind ='V' THEN 1 ELSE 0 END ) Total_Vistas_P_RRHH_TABLES,
+SUM(CASE WHEN A.Databasename ='P_RRHH_TABLES' AND A.TableKind ='M' THEN 1 ELSE 0 END ) Total_Macros_P_RRHH_TABLES,
+SUM(CASE WHEN A.Databasename ='P_RRHH_TABLES' AND A.TableKind ='P' THEN 1 ELSE 0 END ) Total_Proc_P_RRHH_TABLES,
+SUM(CASE WHEN A.Databasename ='P_RRHH_TABLES' AND A.TableKind ='I' THEN 1 ELSE 0 END ) Total_JI_P_RRHH_TABLES,
+
+                	
+/**** ANALISIS IMPLEMENTACION Y CARGA DE LAS ESTRUCTURAS MODELADAS EN EL MI***/
+
+(SELECT	count( distinct TABLA)
+FROM	P_DW_EXPLO_TABLES.DWRM_PMA_KPI_TABLAS_ERWIN) Tabl_Mod_MI,   -- Tabla modelada MI
+
+SUM(CASE WHEN TD.Erwin_MI_Tables is not null  AND A.TableKind ='T' AND A.Databasename IN ('P_DW_TABLES','P_LOOKUP','P_RRHH_TABLES')		THEN 1 ELSE 0 END ) Tabl_Mod_Creada_MI,	-- Tablas MI modeladas y creadas
+SUM(CASE WHEN TD.Erwin_MI_Tables is not null  AND A.TableKind ='T' and A.DatabaseName = 'P_DW_TABLES'  									THEN 1 ELSE 0 END ) Tabl_Mod_Creada_MI_P_DW_TABLES,	-- Tablas MI modeladas y creadas en P_DW_TABLES
+SUM(CASE WHEN TD.Erwin_MI_Tables is not null  AND A.TableKind ='T' AND A.DatabaseName = 'P_LOOKUP'  										THEN 1 ELSE 0 END ) Tabl_Mod_Creada_MI_P_LOOKUP,	-- Tablas MI modeladas y creadas en P_LOOKUP
+SUM(CASE WHEN TD.Erwin_MI_Tables is not null  AND A.TableKind ='T' AND A.DatabaseName ='P_RRHH_TABLES'  									THEN 1 ELSE 0 END ) Tabl_Mod_Creada_MI_P_RRHH_TABLES,   	-- Tablas MI modeladas y creadas en P_DW_RRHH_TABLES
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+(SELECT Count( distinct tablename) from DBC.StatsV where StatsID=0 and Rowcount >=1
+     and tablename like 'MIZ_%' ESCAPE 'Z'
+	 and tablename in (Select distinct TABLA from P_DW_EXPLO_TABLES.DWRM_PMA_KPI_TABLAS_ERWIN)) Tabl_Mod_Pob_MI, -- Tablas MI modeladas, creadas y cargadas en P_DW_TABLES o P_LOOKUP o P_RRHH_TABLES
+
+(SELECT Count( distinct tablename) from DBC.StatsV where DATABASENAME = 'P_DW_TABLES' AND  StatsID=0 and Rowcount >=1
+     and tablename like 'MIZ_%' ESCAPE 'Z'
+	 and tablename in (Select distinct TABLA from P_DW_EXPLO_TABLES.DWRM_PMA_KPI_TABLAS_ERWIN)) Tabl_Mod_Pob_MI_P_DW_TABLES,	-- Tablas MI modeladas, creadas y cargadas en P_DW_TABLES
+
+
+(SELECT Count( distinct tablename) from DBC.StatsV where DATABASENAME = 'P_LOOKUP' AND  StatsID=0 and Rowcount >=1
+     and tablename like 'MIZ_%' ESCAPE 'Z'
+	 and tablename in (Select distinct TABLA from P_DW_EXPLO_TABLES.DWRM_PMA_KPI_TABLAS_ERWIN)) Tabl_Mod_Pob_MI_P_LOOKUP,	-- Tablas MI modeladas, creadas y cargadas en P_LOOKUP
+
+(SELECT Count( distinct tablename) from DBC.StatsV where DATABASENAME = 'P_RRHH_TABLES' AND  StatsID=0 and Rowcount >=1
+     and tablename like 'MIZ_%' ESCAPE 'Z'
+	 and tablename in (Select distinct TABLA from P_DW_EXPLO_TABLES.DWRM_PMA_KPI_TABLAS_ERWIN)) Tabl_Mod_Pob_MI_P_RRHH_TABLES,	-- Tablas MI modeladas, creadas y cargadas en P_RRHH_TABLES
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Tabl_Mod_Creada_MI*100/Tabl_Mod_MI AS PCT_Creacion_Tabl_Mod,  --  Porcentaje de creaciÃ³n de tablas modeladas
+Tabl_Mod_Pob_MI*100/Tabl_Mod_Creada_MI AS PCT_Carga_Tabl_Mod,  -- Porcentaje de carga de tablas modeladas y creadas
+
+
+SUM(CASE WHEN    A.Databasename IN ('P_DW_TABLES' , 'P_LOOKUP','P_RRHH_TABLES')	
+		AND A.TableKind ='T' 
+		AND substr(A.Tablename,1,3) ='MI_' THEN 1 ELSE 0 END ) Tot_Tabl_Impl_MI, -- Total tablas implementadas MI. Tablas existentes en P_DW_TABLES Y P_LOOKUP Con prefijo MI_
+		
+SUM(CASE WHEN A.Databasename ='P_DW_TABLES' 
+		AND A.TableKind ='T' 
+		AND substr(A.Tablename,1,3) ='MI_' THEN 1 ELSE 0 END ) Tabl_Impl_MI_P_DW_TABLES, -- Total tablas implementadas MI en P_DW_TABLES. Tablas existentes en P_DW_TABLES con prefijo MI_
+		
+SUM(CASE WHEN A.Databasename ='P_LOOKUP' 
+		AND A.TableKind ='T' 
+		AND substr(A.Tablename,1,3) ='MI_' THEN 1 ELSE 0 END ) Tabl_Impl_MI_P_LOOKUP,-- Total tablas implementadas MI en P_DW_LOOKUP. Tablas existentes en P_DW_TABLES con prefijo MI_
+
+SUM(CASE WHEN A.Databasename ='P_RRHH_TABLES' 
+		AND A.TableKind ='T' 
+		AND substr(A.Tablename,1,3) ='MI_' THEN 1 ELSE 0 END ) Tabl_Impl_MI_P_RRHH_TABLES,-- Total tablas implementadas MI en P_DW_LOOKUP. Tablas existentes en P_DW_TABLES con prefijo MI_				
+
+Tot_Tabl_Impl_MI*100/Total_Tablas PCT_MI_Vs_TotTabl,
+100- PCT_MI_Vs_TotTabl PCT_ViejoMundo_Vs_TotTabl     	,
+---------------------------------------------------------------------------------------------------------------------------------------------------------            	
+SUM(CASE WHEN A.Databasename in ('P_DW_TABLES' , 'P_LOOKUP','P_RRHH_TABLES')
+		AND A.TableKind ='T' 
+		AND substr(A.Tablename,1,3) ='MI_'
+		AND TD.Erwin_MI_Tables is null THEN 1 ELSE 0 END ) Tabl_Impl_MI_NODOC ,  -- Tablas que se han creado en la base de datos con prefijo MI Pero no estan en el Erwin
+		
+SUM(CASE WHEN A.Databasename ='P_DW_TABLES'
+		AND A.TableKind ='T' 
+		AND substr(A.Tablename,1,3) ='MI_'
+		AND TD.Erwin_MI_Tables is null THEN 1 ELSE 0 END ) Tabl_Impl_MI_NODOC_P_DW_TABLES ,  -- Tablas que se han creado en la base de datos   P_DW_TABLES con prefijo MI Pero no estan en el Erwin
+SUM(CASE WHEN A.Databasename ='P_LOOKUP'
+		AND A.TableKind ='T' 
+		AND substr(A.Tablename,1,3) ='MI_'
+		AND TD.Erwin_MI_Tables is null THEN 1 ELSE 0 END ) Tabl_Impl_MI_NODOC_P_LOOKUP ,  -- Tablas que se han creado en la base de datos   P_LOOKUP con prefijo MI Pero no estan en el Erwin
+		
+SUM(CASE WHEN A.Databasename ='P_RRHH_TABLES'
+		AND A.TableKind ='T' 
+		AND substr(A.Tablename,1,3) ='MI_'
+		AND TD.Erwin_MI_Tables is null THEN 1 ELSE 0 END ) Tabl_Impl_MI_NODOC_P_RRHH_TABLES ,  -- Tablas que se han creado en la base de datos   P_RRHH_TABLES con prefijo MI Pero no estan en el Erwin
+
+		
+SUM(C_No_Doc_MI.Total_Campos_No_Doc) Campo_MI_NODOC, -- Numero de campos en tablas con prefijo MI existentes en la Base de datos que no estÃ¡n en el Erwin
+		
+SUM(CASE WHEN A.Databasename in ('P_DW_TABLES' , 'P_LOOKUP','P_RRHH_TABLES')
+		AND A.TableKind ='T' 
+		AND T_OLD.TableName IS NULL  
+		AND  A.Tablename not like 'ZDEPU%'  -- Tablas temporales
+		THEN 1 ELSE 0 END ) Tabl_nueva,  -- TABLAS INCLUIDAS POSTERIOR A AGOSTO 15 - 2023 
+		
+		SUM(CASE WHEN A.Databasename in ('P_DW_TABLES' , 'P_LOOKUP','P_RRHH_TABLES')
+		AND A.TableKind ='T' 
+		AND T_OLD.TableName IS NULL  
+		AND  A.Tablename not like 'ZDEPU%'  -- Tablas temporales
+		AND TD.Erwin_MI_Tables IS NOT NULL
+		THEN 1 ELSE 0 END ) Tabl_nueva_Doc,  -- TABLAS INCLUIDAS POSTERIOR A AGOSTO 15 - 2023 DOCUMENTADAS EN EL ERWIN MI
+		
+				SUM(CASE WHEN A.Databasename in ('P_DW_TABLES' , 'P_LOOKUP','P_RRHH_TABLES')
+		AND A.TableKind ='T' 
+		AND T_OLD.TableName IS NULL  
+		AND  A.Tablename not like 'ZDEPU%'  -- Tablas temporales
+		AND TD.Erwin_MI_Tables IS  NULL
+		THEN 1 ELSE 0 END ) Tabl_nueva_NODOC,  -- TABLAS INCLUIDAS POSTERIOR A AGOSTO 15 - 2023 NO DOCUMENTADAS EN EL ERWIN MI
+
+				SUM(CASE WHEN A.Databasename in ('P_DW_TABLES' )
+		AND A.TableKind ='T' 
+		AND T_OLD.TableName IS NULL  
+		AND  A.Tablename not like 'ZDEPU%'  -- Tablas temporales
+		AND TD.Erwin_MI_Tables IS  NULL
+		THEN 1 ELSE 0 END ) Tabl_nueva_NODOC_p_dw_tables,  -- TABLAS INCLUIDAS EN P_DW_TABLES POSTERIOR A AGOSTO 15 - 2023 NO DOCUMENTADAS EN EL ERWIN MI
+		
+		SUM(CASE WHEN A.Databasename in ('P_LOOKUP' )
+		AND A.TableKind ='T' 
+		AND T_OLD.TableName IS NULL  
+		AND  A.Tablename not like 'ZDEPU%'  -- Tablas temporales
+		AND TD.Erwin_MI_Tables IS  NULL
+		THEN 1 ELSE 0 END ) Tabl_nueva_NODOC_P_LOOKUP,  -- TABLAS INCLUIDAS EN P_DW_TABLES POSTERIOR A AGOSTO 15 - 2023 NO DOCUMENTADAS EN EL ERWIN MI		
+
+		SUM(CASE WHEN A.Databasename in ('P_RRHH_TABLES' )
+		AND A.TableKind ='T' 
+		AND T_OLD.TableName IS NULL  
+		AND  A.Tablename not like 'ZDEPU%'  -- Tablas temporales
+		AND TD.Erwin_MI_Tables IS  NULL
+		THEN 1 ELSE 0 END ) Tabl_nueva_NODOC_P_RRHH_TABLES,  -- TABLAS INCLUIDAS EN P_DW_TABLES POSTERIOR A AGOSTO 15 - 2023 NO DOCUMENTADAS EN EL ERWIN MI		
+
+
+SUM(CASE WHEN A.Databasename in ('P_LOOKUP', 'P_DW_TABLES')
+		AND A.TableKind ='T' 
+		AND SK.SKEWFACTOR >10
+		AND SK.CURRENTPERM_MB > 100
+		AND SK.SKEW_CLASS ='PELIGRO - ALTO SKEW'
+		THEN 1 ELSE 0 END ) Tabl_Skew_Alto,  -- TABLAS DE MAS DE 100 MB CON ALTO SKEW	
+
+
+
+
+SUM(CASE WHEN 
+		
+		STA.Fecha_Stats is null
+		AND A.Databasename in ('P_LOOKUP', 'P_DW_TABLES')
+		AND A.TableKind ='T'
+		THEN 1 ELSE 0 END ) Tabl_Sin_Estadisticas,
+		
+SUM(CASE WHEN 
+		A.Databasename in ('P_LOOKUP', 'P_DW_TABLES')
+		AND A.TableKind ='T'
+		AND (A.tablename like '%New%'
+		or A.tablename like '%old%'
+		or A.tablename like '%borrar%'
+		or A.tablename like '%backup%'
+		or A.tablename like '%bkp%'
+		or A.tablename like '%nueva%'
+		or A.tablename like '%vieja%'
+		or A.tablename like ANY ('%Z_V2','%Z_V3','%Z_V4','%Z_V5','%Z_V6','%Z_V7','%Z_V8','%Z_V9','%Z_V10') ESCAPE 'Z'
+		or A.tablename like '%Copia%'
+		or A.tablename like '%Respaldo%') 
+		THEN 1 ELSE 0 END ) Tabl_Limplieza_Datos
+		
+FROM 
+ DBC.TABLESV A 
+ LEFT OUTER JOIN 
+ 
+ -- TABLAS DOCUMENTADAS EN EL ERWIN MI
+ ( SELECT Tabla as Erwin_MI_Tables from P_DW_EXPLO_TABLES.DWRM_PMA_KPI_TABLAS_ERWIN)  TD 
+ ON TD.Erwin_MI_Tables=A.Tablename   -- ARREGLAR
+
+ -- BACKUP TABLAS  EXISTENTES EN AGOSTO 15 DE 2023
+  LEFT OUTER JOIN P_DW_EXPLO_TABLES.DWRM_PMA_KPI_TABLES_DBC T_OLD
+		ON A.Databasename = T_OLD.DatabaseName
+		AND A.TableName  = T_OLD.TableName
+		AND T_OLD.ReportDt ='2023-08-15'
+
+ -- TABLAS DOCUMENTADAS EN EL ERWIN Y CREADA 
+ LEFT OUTER JOIN
+ (
+ SELECT  DatabaseName DW_Database, Tablename DW_MI_Tables FROM DBC.TablesV where tablename in  (SElect TABLA  
+ FROM  P_DW_EXPLO_TABLES.DWRM_PMA_KPI_TABLAS_ERWIN) and Databasename in ('P_DW_TABLES','P_LOOKUP','P_RRHH_TABLES')
+ )  TC --Tablas  creada
+ ON TC.DW_MI_Tables=A.Tablename
+
+LEFT OUTER JOIN 
+	P_DW_EXPLO_TABLES.DWRM_PMA_KPI_table_row_count REG
+	ON REG.Tablename = TC.DW_MI_Tables
+	AND REG.databasename =TC.DW_Database
+
+ 
+ LEFT OUTER JOIN
+ 
+ (SELECT A.DatabaseName, A.TableName,count(*) Total_Campos,
+SUM(CASE WHEN CampoDoc.ColumnName is null THEN 1 ELSE 0 END ) Total_Campos_No_Doc
+FROM
+ DBC.COLUMNSV A 
+ 
+ 
+ LEFT OUTER JOIN 
+ ( SELECT TableName , ColumnName
+ 	FROM DBC.COLUMNSV
+	WHERE Databasename  ='MDM'
+	AND TableName like 'MIZ_%' ESCAPE 'Z'   ) CampoDoc --Campo documentadas
+ ON CampoDoc.Tablename=A.Tablename
+ AND CampoDoc.ColumnName = A.ColumnName
+ WHERE A.Databasename in ('P_DW_TABLES','P_LOOKUP')
+ AND A.TableName like 'MIZ_%' ESCAPE 'Z'  
+ 
+ Group by 1,2) C_No_Doc_MI
+ON A.Databasename = C_No_Doc_MI.DatabaseName
+AND A.TableName  = C_No_Doc_MI.TableName
+ 
+
+LEFT OUTER JOIN 
+(
+SELECT DATABASENAME,TABLENAME,
+       SUM(CURRENTPERM)/1024/1024/1024  CURRENTPERM_GB,
+  SUM(CURRENTPERM)/1024/1024  CURRENTPERM_MB,
+  SUM(CURRENTPERM)/1024  CURRENTPERM_KB,
+       SUM(PEAKPERM) PEAKPERM_Byte,
+       CAST((100-(AVG(CURRENTPERM)/MAX(CURRENTPERM)*100)) AS DECIMAL(5,2)) SKEWFACTOR,
+  CASE WHEN SKEWFACTOR <= 10 THEN 'SKEW NORMAL'
+       WHEN SKEWFACTOR >10 AND
+SKEWFACTOR <=20 THEN 'SKEW NO RECOMENDADO'
+ELSE 'PELIGRO - ALTO SKEW' END SKEW_CLASS
+  FROM DBC.TABLESIZEV 
+ WHERE DATABASENAME in ('P_DW_TABLES','P_LOOKUP','MDM','P_RRHH_TABLES')
+ GROUP BY DATABASENAME,TABLENAME
+) SK
+
+ON A.TABLENAME = SK.TABLENAME
+AND A.Databasename = SK.DATABASENAME
+AND A.TableKind = 'T' 
+
+
+
+LEFT OUTER JOIN
+
+(SEL databasename,tablename,  MAX(CreateTimeStamp) Fecha_Stats
+FROM DBC.TableStatsV
+WHERE databasename IN ('P_DW_TABLES','P_LOOKUP','P_RRHH_TABLES')
+GROUP BY 1,2
+) STA
+ON A.TABLENAME = STA.tablename
+AND A.Databasename = STA.databasename
+ 
+ WHERE A.Databasename in ('P_DW_TABLES','P_LOOKUP','MDM','P_RRHH_TABLES')
+ 
+ ) BASE
+ 
+CROSS JOIN 
+(
+
+ SELECT  
+ Count(*) Total_Campo_No_estandar --  Total de campos existentes en P_DW_TABLES, P_LOOKUP y P_RRHH_TABLES que no tienen el estandar definido
+ ,SUM( CASE WHEN A.Databasename ='P_DW_TABLES' THEN  1 ELSE 0 END) Campo_No_Estandarizado_P_DW_TABLES --  Total de campos existentes en P_DW_TABLES que no tienen el estandar definido
+ ,SUM( CASE WHEN A.Databasename ='P_LOOKUP' THEN  1 ELSE 0 END) Campo_No_Estandarizado_P_LOOKUP --  Total de campos existentes en  P_LOOKUP  que no tienen el estandar definido
+ ,SUM( CASE WHEN A.Databasename ='P_RRHH_TABLES' THEN  1 ELSE 0 END) Campo_No_Estandarizado_P_RRHH_Tables --  Total de campos existentes en P_RRHH_TABLES que no tienen el estandar definido
+ ,SUM( CASE WHEN CampoDoc.ColumnName is NOT NULL THEN  1 ELSE 0 END) Campo_Mod_No_Estandar --  Campos modelados y documentados en el Erwin MI e implementados en P_DW_TABLES, P_LOOKUP y P_RRHH_TABLES que no tienen el estandar definido
+ ,SUM( CASE WHEN CampoDoc.ColumnName is  NULL AND SUBSTRING(A.TABLENAME FROM 1 FOR 3) ='MI_' THEN  1 ELSE 0 END) Campo_MI_NODOC_No_Estandar -- Total de campos implementados en P_DW_TABLES, P_LOOKUP y P_RRHH_TABLES con transgresiÃ³n al MI que incumplen el estandar de nomenclatura
+ ,SUM( CASE WHEN CampoDoc.ColumnName is  NULL AND SUBSTRING(A.TABLENAME FROM 1 FOR 3) ='MI_' AND A.Databasename ='P_DW_TABLES' THEN  1 ELSE 0 END) Campo_MI_NODOC_No_Estandar_P_DW_TABLES-- Total de campos implementados en P_DW_TABLES con transgresiÃ³n al MI que incumplen el estandar de nomenclatura
+ ,SUM( CASE WHEN CampoDoc.ColumnName is  NULL AND SUBSTRING(A.TABLENAME FROM 1 FOR 3) ='MI_' AND A.Databasename ='P_LOOKUP' THEN  1 ELSE 0 END) Campo_MI_NODOC_No_Estandar_P_LOOKUP-- Total de campos implementados en  P_LOOKUP  con transgresiÃ³n al MI que incumplen el estandar de nomenclatura
+ ,SUM( CASE WHEN CampoDoc.ColumnName is  NULL AND SUBSTRING(A.TABLENAME FROM 1 FOR 3) ='MI_' AND A.Databasename ='P_RRHH_TABLES' THEN  1 ELSE 0 END) Campo_MI_NODOC_No_Estandar_P_RRHH_TABLES -- Total de campos implementados en P_RRHH_TABLES con transgresiÃ³n al MI que incumplen el estandar de nomenclatura
+ 
+ 	FROM (
+	SELECT
+		Databasename
+ 		,TableName
+ 		,ColumnName
+ 		,REVERSE(STRTOK(REVERSE(ColumnName),'_',1)) Sufijo
+ 		,CASE WHEN  TRIM(Sufijo) IN ('Amt','Blob','Clob','Code','Cd','Cnt','Ind','Meas','Name','Num','Pct','Pdt','Pdttm','Qty','Rate','Txt','Val','Id','Desc','Dt','Tm','Dttm','url','iso','cuit') THEN 'Estandarizado' ELSE 'No Estandarizado' END clasif
+		FROM DBC.COLUMNSV 
+ 		WHERE Databasename in ('P_DW_TABLES','P_LOOKUP','P_RRHH_TABLES')
+		AND  clasif ='No Estandarizado'
+		)A
+
+
+	LEFT OUTER JOIN 
+ ( SELECT TableName , ColumnName
+ 	FROM DBC.COLUMNSV
+	WHERE Databasename  ='MDM'
+	AND TableName like 'MIZ_%' ESCAPE 'Z'   ) CampoDoc --Campo documentadas
+ ON CampoDoc.Tablename=A.Tablename
+ AND CampoDoc.ColumnName = A.ColumnName
+) Est;
